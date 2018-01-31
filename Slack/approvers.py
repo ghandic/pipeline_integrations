@@ -4,8 +4,8 @@ import json
 from slackclient import SlackClient
 
 # Your app's Slack bot user token
-SLACK_BOT_TOKEN = os.envirn["SLACK_BOT_TOKEN"]
-SLACK_VERIFICATION_TOKEN = os.envirn["SLACK_VERIFICATION_TOKEN"]
+SLACK_BOT_TOKEN = os.environ["SLACK_BOT_TOKEN"]
+SLACK_VERIFICATION_TOKEN = os.environ["SLACK_VERIFICATION_TOKEN"]
 
 # Slack client for Web API requests
 slack_client = SlackClient(SLACK_BOT_TOKEN)
@@ -26,11 +26,11 @@ def message_actions():
     selection = form_json["actions"][0]["value"]#["selected_options"][0]["value"]
 
     if selection == "yes":
-        if pipeline=="data_move_dacc" and approver=="andrewchallis":
+        if pipeline=="data_move" and approver=="andrewchallis":
             message_text = "You have just approved the data move!"
             print("Do data move!")
         else:
-            message_text = "You can't move the data you :horse:"
+            message_text = "You can't move the data you're a :horse:"
     else:
         message_text = "You have rejected the data move request"
 

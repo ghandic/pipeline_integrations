@@ -7,4 +7,4 @@ docker-ip() {
 
 export ROCKET_IP=`docker-ip rocketchat`
 
-docker run -d -p 8888:8888 --name notebook ROCKET_IP=$ROCKET_IP -v ~:/home/jovyan/work jupyter/scipy-notebook start-notebook.sh --NotebookApp.token=''
+docker run -d -p 8888:8888 --name notebook -e ROCKET_IP=$ROCKET_IP -v ~:/home/jovyan/work jupyter/scipy-notebook start-notebook.sh --NotebookApp.token=''
